@@ -39,7 +39,7 @@ function updateUserName(user, name) {
     user.lastUpdated = new Date();
 }
 
-// Large Class (God Object)
+// Large Class 
 class UserManager {
     constructor() {
         this.users = [];

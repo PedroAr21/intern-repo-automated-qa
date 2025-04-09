@@ -1,6 +1,4 @@
-// Refactored Code
-
-// Magic Numbers & Strings -> Use Constants
+// Magic Numbers & Strings 
 const ADMIN_ROLE = "admin";
 const MINIMUM_AGE = 21;
 
@@ -8,7 +6,7 @@ function checkUserRole(user) {
     return user.role === ADMIN_ROLE && user.age > MINIMUM_AGE;
 }
 
-// Long Function -> Break into Smaller Functions
+// Long Function
 function processUserData(user, id, email, status, log) {
     console.log(`Processing user: ${id}`);
     if (!user.isActive) {
@@ -35,7 +33,7 @@ function logUserActivity(user, id, shouldLog) {
     }
 }
 
-// Duplicate Code -> Reuse Logic
+// Duplicate Code 
 function updateUserField(user, field, value, fieldName) {
     user[field] = value;
     console.log(`${fieldName} updated: ${value}`);
@@ -50,7 +48,7 @@ function updateUserName(user, name) {
     updateUserField(user, "name", name, "Name");
 }
 
-// Large Class (God Object) -> Split Responsibilities
+// Large Class (God Object)
 class UserRepository {
     constructor() {
         this.users = [];
@@ -77,7 +75,7 @@ class UserValidator {
     }
 }
 
-// Deeply Nested Conditionals -> Simplify Logic
+// Deeply Nested Conditionals 
 function validateUserAccess(user) {
     return user.isActive &&
            user.role === ADMIN_ROLE &&
@@ -86,9 +84,9 @@ function validateUserAccess(user) {
            user.lastLogin;
 }
 
-// Commented-Out Code -> Remove It
+// Commented-Out Code 
 // (Removed the commented-out function)
 
-// Inconsistent Naming -> Use Clear, Consistent Names
+// Inconsistent Naming 
 let userName = "John";
 let userData = { id: 1 };
