@@ -12,10 +12,10 @@ jobs: # A workflow consists of jobs; we have one job called "test"
     - name: Install Appium # This step installs Appium, which connects to WinAppDriver
       run: npm install -g appium # Command to install Appium globally
     - name: Install WD # This step installs the "wd" package, a JavaScript library for Appium
-      run: npm install wd # Command to install the wd package
+      run: cd "files of the practices/Integrating WinAppDriver Tests into CI/CD/tests" && npm install # Command to install the wd package
     - name: Download and Run WinAppDriver # This step downloads and starts WinAppDriver
       run: |
         Invoke-WebRequest -Uri "https://github.com/microsoft/WinAppDriver/releases/download/v1.2.1/WindowsApplicationDriver_1.2.1.exe" -OutFile "WinAppDriver.exe"
         Start-Process -FilePath "WinAppDriver.exe" # Downloads and runs WinAppDriver
     - name: Run Tests # This step runs your JavaScript test script
-      run: node test.js # Command to execute your test script
+      run: cd "files of the practices/Integrating WinAppDriver Tests into CI/CD/tests" && node test.js # Command to execute your test script
