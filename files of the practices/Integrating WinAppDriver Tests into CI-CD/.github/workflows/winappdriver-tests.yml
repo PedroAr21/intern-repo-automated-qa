@@ -18,4 +18,4 @@ jobs: # A workflow consists of jobs; we have one job called "test"
         Invoke-WebRequest -Uri "https://github.com/microsoft/WinAppDriver/releases/download/v1.2.1/WindowsApplicationDriver_1.2.1.exe" -OutFile "WinAppDriver.exe"
         Start-Process -FilePath "WinAppDriver.exe" # Downloads and runs WinAppDriver
     - name: Run Tests # This step runs your JavaScript test script
-      run: node focus_bear_test.js # Command to execute your test script
+      run: node test.js # Command to execute your test script
