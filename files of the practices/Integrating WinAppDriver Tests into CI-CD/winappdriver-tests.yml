@@ -19,3 +19,4 @@ jobs: # A workflow consists of jobs; we have one job called "test"
         Start-Process -FilePath "WinAppDriver.exe" # Downloads and runs WinAppDriver
     - name: Run Tests # This step runs your JavaScript test script
       run: node focus_bear_test.js # Command to execute your test script
+      
