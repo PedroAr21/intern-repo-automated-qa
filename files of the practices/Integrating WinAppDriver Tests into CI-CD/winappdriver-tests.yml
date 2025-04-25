@@ -1,0 +1,21 @@
+name: WinAppDriver Tests # This is the name of your workflow, visible in GitHub Actions
+on: [push] # This tells GitHub Actions to run the workflow whenever you push code to the repository
+jobs: # A workflow consists of jobs; we have one job called "test"
+  test: # The name of the job
+    runs-on: windows-latest # This specifies that the job runs on a Windows machine, needed for WinAppDriver
+    steps: # The steps are the actions the job performs
+    - uses: actions/checkout@v3 # This step downloads your repository code to the GitHub Actions runner
+    - name: Set up Node.js # This step sets up Node.js, needed for JavaScript and Appium
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # We’re using Node.js version 16
+    - name: Install Appium # This step installs Appium, which connects to WinAppDriver
+      run: npm install -g appium # Command to install Appium globally
+    - name: Install WD # This step installs the "wd" package, a JavaScript library for Appium
+      run: npm install wd # Command to install the wd package
+    - name: Download and Run WinAppDriver # This step downloads and starts WinAppDriver
+      run: |
+        Invoke-WebRequest -Uri "https://github.com/microsoft/WinAppDriver/releases/download/v1.2.1/WindowsApplicationDriver_1.2.1.exe" -OutFile "WinAppDriver.exe"
+        Start-Process -FilePath "WinAppDriver.exe" # Downloads and runs WinAppDriver
+    - name: Run Tests # This step runs your JavaScript test script
+      run: node focus_bear_test.js # Command to execute your test script
